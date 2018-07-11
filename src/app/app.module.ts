@@ -1,28 +1,30 @@
-import {BrowserModule} from '@angular/platform-browser';
-import {NgModule} from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+import { NgModule } from '@angular/core';
 
-
-import {AppComponent} from './app.component';
-import {StoreModule} from "@ngrx/store";
-import {simpleReducer} from './ngrx/simple.reducer';
-import {AppRoutingModule} from "./app-routing.module";
-import {postReducer} from "./ngrx/post.reducer";
-
+import { AppComponent } from './app.component';
+import { StoreModule } from '@ngrx/store';
+import { AppRoutingModule } from './app-routing.module';
+import { FormsModule } from '@angular/forms';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { PizzaModule } from './pizza/pizza.module';
+import { reducers } from './ngrx/reducers';
 
 @NgModule({
-  declarations: [
-    AppComponent
-  ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    StoreModule.forRoot({
-      post: postReducer,
-      message: simpleReducer
-    })
-  ],
-  providers: [],
-  bootstrap: [AppComponent]
+    declarations: [
+        AppComponent
+    ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        FormsModule,
+        StoreModule.forRoot(reducers),
+        StoreDevtoolsModule.instrument({
+            maxAge: 10 // number of states to retain
+        }),
+        PizzaModule
+    ],
+    providers: [],
+    bootstrap: [AppComponent]
 })
 export class AppModule {
 }

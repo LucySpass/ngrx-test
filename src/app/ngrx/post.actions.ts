@@ -13,7 +13,6 @@ export class EditText implements Action {
   constructor(public payload: string) {}
 }
 
-
 export class Upvote implements Action {
   readonly type = UPVOTE;
 }

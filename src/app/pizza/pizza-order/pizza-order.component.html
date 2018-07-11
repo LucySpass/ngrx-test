@@ -1,0 +1,19 @@
+<h1>Welcome to NGRX Pizzeria!</h1>
+
+<div *ngFor="let pizza of pizzas | async">
+    <h3>Pizza id: {{pizza.id}}</h3>
+    <h4>Size: {{pizza.size}}</h4>
+
+    <button *ngIf="pizza.size === 'small'"
+            (click)="updatePizza(pizza.id, 'large')">
+        Upgrade to large
+    </button>
+
+    <button *ngIf="pizza.size === 'large'"
+            (click)="updatePizza(pizza.id, 'small')">
+        Downgrade to small
+    </button>
+
+    <button (click)="deletePizza(pizza.id)">Delete pizza</button>
+</div>
+<button (click)="createPizza()">Create new</button>
