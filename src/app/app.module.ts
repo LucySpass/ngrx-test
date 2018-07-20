@@ -1,25 +1,24 @@
+import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
 import { AppComponent } from './app.component';
 import { StoreModule } from '@ngrx/store';
-import { AppRoutingModule } from './app-routing.module';
-import { FormsModule } from '@angular/forms';
-import { StoreDevtoolsModule } from '@ngrx/store-devtools';
-
+import { reducer } from './reducers/dog.reducer';
+import { ReadComponent } from './read/read.component';
+import { CreateComponent } from './create/create.component';
 
 @NgModule({
     declarations: [
-        AppComponent
+        AppComponent,
+        ReadComponent,
+        CreateComponent,
     ],
     imports: [
         BrowserModule,
-        AppRoutingModule,
+        HttpClientModule,
         FormsModule,
-        StoreModule.forRoot(''),
-        StoreDevtoolsModule.instrument({
-            maxAge: 10 // number of states to retain
-        })
+        StoreModule.forRoot({dog: reducer})
     ],
     providers: [],
     bootstrap: [AppComponent]

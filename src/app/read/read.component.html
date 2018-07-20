@@ -1,0 +1,16 @@
+<div class="right" *ngIf="dogs">
+    <h3>~List of dogs~</h3>
+
+    <ul>
+        <li *ngFor="let dog of dogs | async; let i = index">
+            <h4>Doggie:
+                <button (click)="dogDeletion(i)">X</button>
+            </h4>
+            <p>Name: {{dog.nick}} </p>
+            <p>Breed: {{dog.breed}}</p>
+            <p>Age: {{dog.age}}</p>
+        </li>
+    </ul>
+
+</div>
+

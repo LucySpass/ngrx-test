@@ -3,4 +3,4 @@
 Ngrx learning example.
 
 ### Explanation
-Application is build by [Jeff Delaney's youtube tutorial](https://www.youtube.com/watch?v=f97ICOaekNU). 
+Application is build by [Gary Simon's YouTube tutorial](https://youtu.be/9P5DTlg9oLc). 
