@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { DogInterface } from '../models/dog.model';
 import { Observable } from 'rxjs/Observable';
 import { AppState } from '../app.state';
@@ -14,6 +14,8 @@ export class ReadComponent implements OnInit {
 
     dogs: Observable<DogInterface[]>;
 
+    @Output() edited = new EventEmitter<number>();
+
     constructor(private store: Store<AppState>) {
         this.dogs = store.select('dog');
     }
@@ -23,6 +25,10 @@ export class ReadComponent implements OnInit {
 
     dogDeletion(i: number) {
         this.store.dispatch(new Actions.RemoveDog(i));
+    }
+
+    dogEdition(i: number) {
+        this.edited.emit(i);
     }
 
 }

@@ -1,4 +1,4 @@
 <h3 class="padding">Welcome to sample2 learning NgRx application!</h3>
 
-<app-create></app-create>
-<app-read></app-read>
+<app-create [editDogIndex]="editDogIndex"></app-create>
+<app-read (edited)="onEdit($event)"></app-read>

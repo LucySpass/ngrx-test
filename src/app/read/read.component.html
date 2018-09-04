@@ -5,6 +5,7 @@
         <li *ngFor="let dog of dogs | async; let i = index">
             <h4>Doggie:
                 <button (click)="dogDeletion(i)">X</button>
+                <button (click)="dogEdition(i)">Edit</button>
             </h4>
             <p>Name: {{dog.nick}} </p>
             <p>Breed: {{dog.breed}}</p>

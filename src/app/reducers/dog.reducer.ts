@@ -16,6 +16,10 @@ export function reducer(state: DogInterface[] = [initialState], action: DogActio
             const old = [...state];
             old.splice(action.payload, 1);
             return old;
+        case DogActions.EDIT_DOG:
+            const oldState = [...state];
+            oldState[action.payload.index] = action.payload.dog;
+            return oldState;
         default:
             return state;
     }

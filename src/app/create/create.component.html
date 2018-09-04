@@ -1,9 +1,17 @@
 <div class="left">
     <h3>~Dog addition~</h3>
-    <input type="text" placeholder="name" #name>
-    <input type="text" placeholder="breed" #breed>
+    <input type="text" placeholder="name"
+           [(ngModel)]="name">
+    <input type="text" placeholder="breed"
+           [(ngModel)]="breed">
 
-    <input type="number" placeholder="age" #age>
+    <input type="number" placeholder="age"
+           [(ngModel)]="age">
 
-    <button (click)="addTutorial(name.value,breed.value,age.value)">Add a friend <3</button>
+    <button *ngIf="isObject(editDogIndex)"
+            (click)="addDog()">Add a friend <3
+    </button>
+    <button *ngIf="!isObject(editDogIndex)"
+            (click)="addDog()">Edit a friend <3
+    </button>
 </div>
